@@ -1,0 +1,10 @@
+# Enable aliases to be sudo’ed
+alias sudo="sudo "
+
+alias ma="python manage.py makemigrations"
+alias mi="python manage.py migrate"
+alias ru="python manage.py runserver"
+
+alias ve="source venv/bin/activate"
+alias vi="source virtualenv/bin/activate"
+

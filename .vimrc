@@ -18,24 +18,31 @@ set expandtab       " Tabs are spaces
 set number      " Show line numbers
 set showcmd     " Show command in bottom bar
 set cursorline  " Highlight current line
-
+set lazyredraw  " Redraw only when we need to
+set showmatch   " Highlight matching [{()}]
 set wildmenu    " Display all matching files when we tab complete
 
 " Don't offer to open certain files/directories
-" set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
-" set wildignore+=*.pdf,*.psd
-" set wildignore+=*.pyc
-" set wildignore+=node_modules/*,bower_components/*,virtualenv/*,venv/*
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+set wildignore+=*.o,*~,*.pyc
+set wildignore+=*/node_modules/*,*/bower_components/*
+set wildignore+=*/__pycache/,*/virtualenv/*,*/venv/*
 
-set showmatch   " Highlight matching [{()}]
+" Searching
+
+set ignorecase  " Ignore case when searching
+set smartcase   " Use case if any caps used
+set incsearch   " Search as characters are entered
+set hlsearch    " Highlight matches
+
+set path+=**    " Search down into subfolders
+
+nnoremap ,<space> :nohlsearch<CR>
 
 " TODO test the following commands
 " Plugins for netrw
 " filetype plugin on
-
-" Search down into subfolders
-" Provides tab-completion for all file-related tasks
-" set path+=**
 
 " opens file under cursor in a new vertical split
 " nnoremap gf :vertical wincmd f<CR>

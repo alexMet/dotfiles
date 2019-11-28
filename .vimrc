@@ -2,12 +2,6 @@
 
 set nocompatible
 
-" Colors
-
-syntax enable               " Enable syntax processing
-let g:sierra_Midnight=1     " Midnight blues
-colorscheme sierra          " Add an oldschool beautiful
-
 " Spaces & Tabs
 
 set tabstop=2       " Number of visual spaces per TAB
@@ -19,7 +13,6 @@ set expandtab       " Tabs are spaces
 
 set number      " Show line numbers
 set showcmd     " Show command in bottom bar
-set cursorline  " Highlight current line
 set lazyredraw  " Redraw only when we need to
 set showmatch   " Highlight matching [{()}]
 set wildmenu    " Display all matching files when we tab complete
@@ -27,6 +20,7 @@ set splitbelow  " Split horizontally to the bottom
 set splitright  " Split vertically to the right
 
 " Don't offer to open certain files/directories
+
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
 set wildignore+=*.o,*~,*.pyc
@@ -55,4 +49,27 @@ filetype indent on  " File type based indentation
 let g:netrw_banner=0                  " Hide the banner
 let g:netrw_liststyle=3               " Use the tree style listing
 " let g:netrw_list_hide=&wildignore     " Inherit the wildignores
+
+" Plug the plugins
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Specify a directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+" Make sure you use single quotes
+call plug#begin('~/.vim/plugged')
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'sheerun/vim-polyglot'
+Plug 'Lokaltog/vim-distinguished'
+call plug#end()
+
+" Colors
+
+syntax on
+colorscheme distinguished
 

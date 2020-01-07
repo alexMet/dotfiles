@@ -1,9 +1,9 @@
-" Enter the current millenium
+" ----- Enter the current millenium
 
 set nocompatible
 let mapleader=','
 
-" Spaces & Tabs
+" ----- Spaces & Tabs
 
 set tabstop=2       " Number of visual spaces per TAB
 set shiftwidth=2
@@ -12,10 +12,11 @@ set expandtab       " Tabs are spaces
 set autoindent      " Automatically indent the next line
 set smarttab
 
-" UI Config
+" ----- UI Config
 
 set number      " Show line numbers
 set showcmd     " Show command in bottom bar
+set cursorline  " Highlight the line that the cursor is on
 set lazyredraw  " Redraw only when we need to
 set showmatch   " Highlight matching [{()}]
 set wildmenu    " Display all matching files when we tab complete
@@ -25,7 +26,7 @@ set scrolloff=2 " Keep some lines around the cursor
 
 set wildmode=list:longest,full
 
-" Don't offer to open certain files/directories
+" ----- Don't offer to open certain files/directories
 
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
@@ -33,7 +34,7 @@ set wildignore+=*.o,*~,*.pyc
 set wildignore+=*/node_modules/*,*/bower_components/*
 set wildignore+=*/__pycache__/*,*/virtualenv/*,*/venv/*
 
-" Searching
+" ----- Searching
 
 set ignorecase  " Ignore case when searching
 set smartcase   " Use case if any caps used
@@ -42,18 +43,18 @@ set hlsearch    " Highlight matches
 
 set path+=**    " Search down into subfolders
 
-" File types
+" ----- File types
 
 filetype on
 filetype plugin on  " File type based plugin
 filetype indent on  " File type based indentation
 
-" File tree browser
+" ----- File tree browser
 
 let g:netrw_banner=0    " Hide the banner
 let g:netrw_liststyle=3 " Use the tree style listing
 
-" Plug the plugins
+" ----- Plug the plugins
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -61,32 +62,35 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Specify a directory for plugins
-" - Avoid using standard Vim directory names like 'plugin'
+" ----- Specify a directory for plugins
+" Avoid using standard Vim directory names like 'plugin'
 " Make sure you use single quotes
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 
+let g:lightline = {'colorscheme': 'one'}
 set laststatus=2  " Windows always have a status line
 set noshowmode    " Don't put the message on to last line
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
-Plug 'Lokaltog/vim-distinguished'
+Plug 'mhartington/oceanic-next'
+Plug 'Yggdroot/indentLine'
 Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
-" Colors
+" ----- Colors
 
 syntax on
-colorscheme distinguished
+set termguicolors " Enable true color support
+colorscheme OceanicNext
 
 set colorcolumn=80  " Highlight the 80th column
 highlight ColorColumn ctermbg=236
 
-" Mappings
+" ----- Mappings
 
 nnoremap <leader><space> :nohlsearch<CR>  " Remove highlight from matches
 

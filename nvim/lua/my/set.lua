@@ -24,7 +24,7 @@ vim.opt.swapfile = false    -- Don't create .swp files
 
 --- Colors
 vim.opt.termguicolors = true    -- Enable true color support
-vim.opt.colorcolumn = "80"      -- Highlight the 80th column
+vim.opt.colorcolumn = '80'      -- Highlight the 80th column
 
 --- File tree browser
 vim.g.netrw_banner = 0      -- Hide the banner

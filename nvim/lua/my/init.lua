@@ -1,2 +1,2 @@
-require("my.remap")
-require("my.set")
+require('my.remap')
+require('my.set')

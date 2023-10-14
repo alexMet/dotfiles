@@ -11,6 +11,7 @@ endif
 " Make sure you use single quotes
 call plug#begin('~/.local/share/nvim/site/plugged')
 
+Plug 'tpope/vim-surround'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
 Plug 'rose-pine/neovim', {'as': 'rose-pine.nvim' }

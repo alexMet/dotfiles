@@ -15,7 +15,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
 Plug 'rose-pine/neovim', {'as': 'rose-pine.nvim' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'ThePrimeagen/harpoon'
 
 " Manage LSP servers from neovim
 Plug 'williamboman/mason.nvim'

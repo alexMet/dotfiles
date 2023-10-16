@@ -17,6 +17,7 @@ make install
   - Custom bindings that work for me
   - Package manager with [plug](https://github.com/junegunn/vim-plug)
   - Theme with [rose-pine](https://github.com/rose-pine/neovim)
+  - Statusline with [lualine](https://github.com/nvim-lualine/lualine.nvim)
   - Autocompletion with [cmp](https://github.com/hrsh7th/nvim-cmp/tree/main)
   - Git integration with [fugitive](https://github.com/tpope/vim-fugitive)
   - Fuzzy finding with [telescope](https://github.com/nvim-telescope/telescope.nvim)

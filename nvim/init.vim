@@ -13,6 +13,9 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 " --- Colorscheme
 Plug 'rose-pine/neovim', {'as': 'rose-pine.nvim' }
 
+" --- Lualine
+Plug 'nvim-lualine/lualine.nvim'
+
 " --- Tpope
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'

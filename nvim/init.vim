@@ -19,6 +19,7 @@ Plug 'nvim-lualine/lualine.nvim'
 " --- Tpope
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-sleuth'
 
 " --- Telescope
 Plug 'nvim-lua/plenary.nvim'

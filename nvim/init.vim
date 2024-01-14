@@ -28,6 +28,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " --- Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'numToStr/Comment.nvim'
 
 " --- Manage LSP servers from neovim
 Plug 'williamboman/mason.nvim'

@@ -18,6 +18,7 @@ Plug 'nvim-lualine/lualine.nvim'
 
 " --- Tpope
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sleuth'
 

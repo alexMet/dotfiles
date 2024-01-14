@@ -48,4 +48,5 @@ Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
 
 call plug#end()
 
-lua require("my")
+lua require('my.remap')
+lua require('my.set')

@@ -28,24 +28,29 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " --- Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'numToStr/Comment.nvim'
 
-" --- Manage LSP servers from neovim
+" --- LSP Support and managing servers
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
-
-" --- LSP Support
 Plug 'neovim/nvim-lspconfig'
 
 " --- Autocompletion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'L3MON4D3/LuaSnip'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'folke/neodev.nvim'
 
-" --- LSP zero
-Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
+" --- Snippets
+Plug 'L3MON4D3/LuaSnip', { 'do': 'make install_jsregexp' }
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'rafamadriz/friendly-snippets'
+
+" --- LSP status updates
+Plug 'j-hui/fidget.nvim'
 
 call plug#end()
 

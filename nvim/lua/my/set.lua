@@ -12,6 +12,7 @@ vim.opt.showmatch = true        -- Highlight matching [{()}]
 vim.opt.splitright = true       -- Split vertically to the right
 vim.opt.scrolloff = 5           -- Keep some lines around the cursor
 vim.opt.wrap = false            -- Don't wrap lines around
+vim.wo.signcolumn = 'yes'       -- Keep signcolumn on by default
 
 --- Searching
 vim.opt.ignorecase = true   -- Ignore case when searching
@@ -23,9 +24,9 @@ vim.opt.hlsearch = false    -- Don't highlight matches
 vim.opt.swapfile = false    -- Don't create .swp files
 
 --- Colors
-vim.opt.termguicolors = true    -- Enable true color support
-vim.opt.colorcolumn = '80'      -- Highlight the 80th column
-vim.cmd.colorscheme('rose-pine-moon')
+vim.opt.termguicolors = true            -- Enable true color support
+vim.opt.colorcolumn = '80'              -- Highlight the 80th column
+vim.cmd.colorscheme('rose-pine-moon')   -- Set the colorscheme
 
 --- File tree browser
 vim.g.netrw_banner = 0      -- Hide the banner

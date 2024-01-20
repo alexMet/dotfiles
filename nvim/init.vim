@@ -54,5 +54,5 @@ Plug 'j-hui/fidget.nvim'
 
 call plug#end()
 
-lua require('my.remap')
-lua require('my.set')
+lua require('my.remaps')
+lua require('my.options')

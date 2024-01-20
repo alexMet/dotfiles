@@ -19,6 +19,7 @@ vim.opt.ignorecase = true   -- Ignore case when searching
 vim.opt.smartcase = true    -- Use case if any caps used
 vim.opt.incsearch = true    -- Search as characters are entered
 vim.opt.hlsearch = false    -- Don't highlight matches
+vim.opt.completeopt = 'menuone,noselect'
 
 --- Backup
 vim.opt.swapfile = false    -- Don't create .swp files

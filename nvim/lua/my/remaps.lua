@@ -1,6 +1,6 @@
 vim.g.mapleader = ' '
 
---- Random
+--- General
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', '<leader>o', ':25Lexplore<CR>') -- Open the project explorer
 vim.keymap.set('n', '<leader>n', ':enew<CR>') -- Create a new file
@@ -9,9 +9,9 @@ vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]]) -- Copy to system clipboard
 --- Buffers
 vim.keymap.set('n', '<Tab>', ':bnext<CR>') -- Go to next buffer
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>') -- Go to previous buffer
-vim.keymap.set('n', '<leader>ba', ':%bdelete<cr>') -- Close all buffers
-vim.keymap.set('n', '<leader>bC', ':%bdelete|e#|bdelete#<cr>') -- Close all buffers except current
-vim.keymap.set('n', '<leader>bc', function() vim.api.nvim_buf_delete(0, {}) end) -- Close current buffer
+vim.keymap.set('n', '<leader>bda', ':%bdelete<cr>') -- Close all buffers
+vim.keymap.set('n', '<leader>bD', ':%bdelete|e#|bdelete#<cr>') -- Close all buffers except current
+vim.keymap.set('n', '<leader>bd', function() vim.api.nvim_buf_delete(0, {}) end) -- Close current buffer
 
 --- Terminal
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>') -- Escape from the terminal
@@ -46,3 +46,9 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 
 --- Search and replace word under the cursor
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+
+vim.keymap.set('n', '<Leader>rd', ':PythonCopyReferenceDotted<CR>')
+vim.keymap.set('n', '<Leader>rp', ':PythonCopyReferencePytest<CR>')
+vim.keymap.set('n', '<Leader>ri', ':PythonCopyReferenceImport<CR>')
+

@@ -2,12 +2,12 @@ local builtin = require('telescope.builtin')
 require('telescope').load_extension('fzf')
 
 --- Git related search remaps
-vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
-vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
-vim.keymap.set('n', '<leader>gC', builtin.git_bcommits, {})
-vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
-vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
-vim.keymap.set('n', '<leader>gS', builtin.git_stash, {})
+vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
+vim.keymap.set('n', '<leader>fgb', builtin.git_branches, {})
+vim.keymap.set('n', '<leader>fgc', builtin.git_commits, {})
+vim.keymap.set('n', '<leader>fgC', builtin.git_bcommits, {})
+vim.keymap.set('n', '<leader>fgs', builtin.git_status, {})
+vim.keymap.set('n', '<leader>fgS', builtin.git_stash, {})
 
 --- Other search remaps
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})

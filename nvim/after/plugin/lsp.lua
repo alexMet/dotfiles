@@ -32,10 +32,9 @@ require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
     'clangd',
-    'gopls',
     'lua_ls',
     'pyright',
-    'rust_analyzer',
+    'ols',
   },
   handlers = {
     function(server_name)

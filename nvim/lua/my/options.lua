@@ -6,6 +6,7 @@ vim.opt.expandtab = true    -- Tabs are spaces
 vim.opt.smartindent = true  -- Automatically indent the next line
 
 --- UI Config
+vim.opt.cursorline = true       -- Highlight the line I'm on
 vim.opt.number = true           -- Show line numbers
 vim.opt.relativenumber = true   -- Show relative line numbers
 vim.opt.showmatch = true        -- Highlight matching [{()}]
@@ -26,7 +27,6 @@ vim.opt.swapfile = false    -- Don't create .swp files
 
 --- Colors
 vim.opt.termguicolors = true            -- Enable true color support
-vim.opt.colorcolumn = '80'              -- Highlight the 80th column
 vim.cmd.colorscheme('rose-pine-moon')   -- Set the colorscheme
 
 --- File tree browser

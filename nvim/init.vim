@@ -31,6 +31,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'numToStr/Comment.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " --- LSP Support and managing servers
 Plug 'williamboman/mason.nvim'
@@ -52,7 +53,11 @@ Plug 'rafamadriz/friendly-snippets'
 " --- LSP status updates
 Plug 'j-hui/fidget.nvim'
 
+" --- Random
+Plug 'ranelpadon/python-copy-reference.vim'
+
 call plug#end()
 
 lua require('my.remaps')
 lua require('my.options')
+lua require('ibl').setup({scope = {enabled = false}})

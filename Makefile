@@ -8,6 +8,12 @@ install: vim python search fish rtorrent podman
 
 # --- Install packages
 
+.PHONY: brave
+brave:
+	git pull https://aur.archlinux.org/brave-bin.git
+	cd brave-bin/
+	makepkg -si
+
 .PHONY: python
 python:
 	# TODO Setup pyenv and pipx
@@ -15,7 +21,7 @@ python:
 
 .PHONY: search
 search:
-	$(INSTALL_CMD) zfz ripgrep
+	$(INSTALL_CMD) zfz ripgrep fd
 
 .PHONY: vim
 vim:

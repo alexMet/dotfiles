@@ -37,6 +37,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'j-hui/fidget.nvim'
 
 " --- Autocompletion
 Plug 'hrsh7th/nvim-cmp'
@@ -50,14 +51,10 @@ Plug 'L3MON4D3/LuaSnip', { 'do': 'make install_jsregexp' }
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 
-" --- LSP status updates
-Plug 'j-hui/fidget.nvim'
-
-" --- Random
+" --- Miscellaneous
 Plug 'ranelpadon/python-copy-reference.vim'
 
 call plug#end()
 
 lua require('my.remaps')
 lua require('my.options')
-lua require('ibl').setup({scope = {enabled = false}})

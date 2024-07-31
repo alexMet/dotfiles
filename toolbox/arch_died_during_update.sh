@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # --- The thing died while updating
 # --- boot from a USB device to arch
 lsblk -k

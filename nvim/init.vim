@@ -51,7 +51,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 
 " --- Miscellaneous
-Plug 'ranelpadon/python-copy-reference.vim'
+Plug 'ranelpadon/python-copy-reference.vim', { 'for': 'python' }
 Plug 'folke/twilight.nvim' 
 Plug 'eandrju/cellular-automaton.nvim'
 

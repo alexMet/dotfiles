@@ -1,7 +1,7 @@
 function fish_prompt --description 'Write out the prompt'
     set -l last_status $status
     set -l normal (set_color normal)
-    set -l status_color (set_color -o brgreen)
+    set -l status_color (set_color -o brblue)
     set -l cwd_color (set_color $fish_color_cwd)
     set -l vcs_color (set_color -o brpurple)
     set -l prompt_status ""
@@ -25,12 +25,6 @@ function fish_prompt --description 'Write out the prompt'
         set prompt_status $status_color "[" $last_status "]" $normal
     end
 
-    # Color and set the virtual env if enabled
-    if test -n "$VIRTUAL_ENV"
-        set venv_color (set_color -o blue)
-        set venv_name $venv_color "(" (basename $VIRTUAL_ENV) ") " $normal
-    end
-
     echo -s $cwd_color (prompt_pwd) $vcs_color (fish_vcs_prompt) $normal ' ' $prompt_status
-    echo -n -s $venv_name $status_color $suffix ' ' $normal
+    echo -n -s $status_color $suffix ' ' $normal
 end

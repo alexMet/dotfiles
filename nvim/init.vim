@@ -53,6 +53,7 @@ Plug 'rafamadriz/friendly-snippets'
 " --- Miscellaneous
 Plug 'ranelpadon/python-copy-reference.vim'
 Plug 'folke/twilight.nvim' 
+Plug 'eandrju/cellular-automaton.nvim'
 
 call plug#end()
 

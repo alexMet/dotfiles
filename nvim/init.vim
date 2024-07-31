@@ -10,11 +10,10 @@ endif
 " Make sure you use single quotes
 call plug#begin('~/.local/share/nvim/site/plugged')
 
-" --- Colorscheme
+" --- UI / UX
 Plug 'rose-pine/neovim', {'as': 'rose-pine.nvim' }
-
-" --- Lualine
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
 
 " --- Tpope
 Plug 'tpope/vim-fugitive'

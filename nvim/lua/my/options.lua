@@ -10,8 +10,9 @@ vim.opt.cursorline = true       -- Highlight the line I'm on
 vim.opt.number = true           -- Show line numbers
 vim.opt.relativenumber = true   -- Show relative line numbers
 vim.opt.showmatch = true        -- Highlight matching [{()}]
+vim.opt.showmode = false        -- Don't show the mode in the cmd line
 vim.opt.splitright = true       -- Split vertically to the right
-vim.opt.scrolloff = 5           -- Keep some lines around the cursor
+vim.opt.scrolloff = 10          -- Keep some lines around the cursor
 vim.opt.wrap = false            -- Don't wrap lines around
 vim.wo.signcolumn = 'yes'       -- Keep signcolumn on by default
 

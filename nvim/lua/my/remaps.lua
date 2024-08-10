@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 --- General
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -9,8 +10,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]]) -- Copy to system clipboard
 --- Buffers
 vim.keymap.set('n', '<Tab>', ':bnext<CR>') -- Go to next buffer
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>') -- Go to previous buffer
-vim.keymap.set('n', '<leader>bda', ':%bdelete<cr>') -- Close all buffers
-vim.keymap.set('n', '<leader>bD', ':%bdelete|e#|bdelete#<cr>') -- Close all buffers except current
+vim.keymap.set('n', '<leader>bda', ':%bdelete<CR>') -- Close all buffers
+vim.keymap.set('n', '<leader>bD', ':%bdelete|e#|bdelete#<CR>') -- Close all buffers except current
 vim.keymap.set('n', '<leader>bd', function() vim.api.nvim_buf_delete(0, {}) end) -- Close current buffer
 
 --- Terminal
@@ -47,7 +48,7 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 --- Search and replace word under the cursor
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-
+--- Python import copies
 vim.keymap.set('n', '<Leader>rd', ':PythonCopyReferenceDotted<CR>')
 vim.keymap.set('n', '<Leader>rp', ':PythonCopyReferencePytest<CR>')
 vim.keymap.set('n', '<Leader>ri', ':PythonCopyReferenceImport<CR>')

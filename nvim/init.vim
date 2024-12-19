@@ -39,16 +39,9 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'j-hui/fidget.nvim'
 
 " --- Autocompletion
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'folke/neodev.nvim'
-
-" --- Snippets
-Plug 'L3MON4D3/LuaSnip', { 'do': 'make install_jsregexp' }
-Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'folke/lazydev.nvim', { 'for': 'lua' }
 Plug 'rafamadriz/friendly-snippets'
+Plug 'saghen/blink.cmp', { 'tag': 'v0.*' }
 
 " --- Miscellaneous
 Plug 'ranelpadon/python-copy-reference.vim', { 'for': 'python' }

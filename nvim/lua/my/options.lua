@@ -6,6 +6,7 @@ vim.opt.expandtab = true    -- Tabs are spaces
 vim.opt.smartindent = true  -- Automatically indent the next line
 
 --- UI Config
+vim.opt.cmdheight = 0           -- Hide the command line
 vim.opt.cursorline = true       -- Highlight the line I'm on
 vim.opt.number = true           -- Show line numbers
 vim.opt.relativenumber = true   -- Show relative line numbers

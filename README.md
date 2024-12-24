@@ -1,7 +1,13 @@
 <div align="center">
-#dotfiles
 
-My dotfiles for `archlinux` using `KDE` with tools like `nvim, fish, git, podman, rtorrent...` Copy paste freely.
+# dotfiles
+
+My dotfiles for `archlinux` using `KDE` with tools like `nvim, fish, git, podman, rtorrent...`
+
+Copy paste freely.
+
+![showcase](https://github.com/user-attachments/assets/6a3b4e10-0b22-422a-9c67-776585c2e1ca)
+<sub>Made beautiful by [Rosé Pine](https://rosepinetheme.com/)</sub>
 
 </div>
 

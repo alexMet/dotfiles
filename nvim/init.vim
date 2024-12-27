@@ -13,6 +13,7 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 " --- UI / UX
 Plug 'rose-pine/neovim', {'as': 'rose-pine.nvim' }
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'folke/which-key.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 
 " --- Tpope

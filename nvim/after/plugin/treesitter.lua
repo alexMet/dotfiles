@@ -50,31 +50,31 @@ require('nvim-treesitter.configs').setup({
       goto_next_start = {
         [']a'] = '@parameter.inner',
         [']f'] = '@function.outer',
-        [']]'] = '@class.outer',
+        [']c'] = '@class.outer',
       },
       goto_next_end = {
         [']A'] = '@parameter.inner',
         [']F'] = '@function.outer',
-        [']['] = '@class.outer',
+        [']C'] = '@class.outer',
       },
       goto_previous_start = {
         ['[a'] = '@parameter.inner',
         ['[f'] = '@function.outer',
-        ['[['] = '@class.outer',
+        ['[c'] = '@class.outer',
       },
       goto_previous_end = {
         ['[A'] = '@parameter.inner',
         ['[F'] = '@function.outer',
-        ['[]'] = '@class.outer',
+        ['[C'] = '@class.outer',
       },
     },
     swap = {
       enable = true,
       swap_next = {
-        ['<leader>a'] = '@parameter.inner',
+        ['<leader>sa'] = '@parameter.inner',
       },
       swap_previous = {
-        ['<leader>A'] = '@parameter.inner',
+        ['<leader>sA'] = '@parameter.inner',
       },
     },
   },

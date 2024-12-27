@@ -60,20 +60,24 @@ require('mason-lspconfig').setup({
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
-    local opts = { buffer = event.buf }
+    local get_opts = function(desc)
+      return { buffer = event.buf, desc = desc }
+    end
 
     --- LSP remaps
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', '<leader>cf', function() vim.lsp.buf.format({ async = true }) end, opts)
-    vim.keymap.set('n', '<leader>co', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', '<leader>cs', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, get_opts('Goto definition'))
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, get_opts('Goto declaration'))
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, get_opts('Goto references'))
+    vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, get_opts('Goto implementation'))
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, get_opts('Actions'))
+    vim.keymap.set('n', '<leader>cf', function()
+      vim.lsp.buf.format({ async = true })
+    end, get_opts('Format'))
+    vim.keymap.set('n', '<leader>ct', vim.lsp.buf.type_definition, get_opts('Type definition'))
+    vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, get_opts('Rename'))
+    vim.keymap.set('n', '<leader>cs', vim.lsp.buf.signature_help, get_opts('Signature help'))
 
     --- Diagnostic remaps
-    vim.keymap.set('n', '<leader>cl', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '<leader>co', vim.diagnostic.open_float, get_opts('Open diagnostics'))
   end
 })

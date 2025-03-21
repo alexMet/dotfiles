@@ -26,6 +26,9 @@ function upup --description 'Update system packages'
     update_if_needed
     popd
 
+    # NOTE: https://wiki.archlinux.org/title/Reflector
+    echo "==> Updating mirrorlist..."
+    sudo reflector --country Greece,France,Germany --latest 5 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
     echo "==> Updating system packages..."
     sudo pacman -Syu
 

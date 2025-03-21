@@ -12,12 +12,29 @@ blink.setup({
   sources = {
     default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
     providers = {
-      lsp = { fallback_for = { "lazydev" } },
-      lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+      lazydev = {
+        name = "LazyDev",
+        module = "lazydev.integrations.blink",
+        score_offset = 100,
+      },
     },
   },
-  -- experimental signature help support
   signature = { enabled = true },
+  -- cmdline = { enabled = false },
+  completion = {
+    trigger = {
+      prefetch_on_insert = false,
+    },
+    accept = {
+      auto_brackets = {
+        enabled = true,
+      },
+    },
+    documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 200,
+    },
+  },
 })
 
 --- Setup mason for installing lsp servers

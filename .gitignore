@@ -11,3 +11,6 @@ tags
 # Plugins
 .vim/autoload/
 .vim/plugged/
+
+# Python
+__pycache__/

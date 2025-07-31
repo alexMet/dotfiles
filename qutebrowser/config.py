@@ -67,6 +67,8 @@ c.completion.cmd_history_max_items = 100
 c.completion.web_history.max_items = 100
 # Width (in pixels) of the scrollbar in the completion window.
 c.completion.scrollbar.width = 4
+# Which categories to show (in which order) in the :open completion.
+c.completion.open_categories = ['history', 'bookmarks']
 # Remember the last used download directory.
 c.downloads.location.remember = False
 # Where to show the downloaded files.
@@ -175,9 +177,16 @@ c.url.searchengines['g'] = 'https://github.com/search?q={}&type=repositories'
 c.url.searchengines['y'] = 'https://yewtu.be/search?q={}'
 
 # Bindings for normal mode
+config.unbind('Sb')
+config.unbind('Sq')
 config.bind('<Ctrl-Shift-Tab>', 'tab-prev')
 config.bind('<Ctrl-Tab>', 'tab-next')
 config.bind('<Ctrl-Q>', 'nop')
 config.bind('<Ctrl-V>', 'nop')
 config.bind('J', 'nop')
 config.bind('K', 'nop')
+config.bind('m', 'bookmark-add')
+config.bind('M', 'bookmark-del')
+config.bind('b', 'bookmark-load')
+config.bind('B', 'bookmark-load -t')
+config.bind('gb', 'bookmark-list -t')

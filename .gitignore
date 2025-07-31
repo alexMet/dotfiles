@@ -8,9 +8,8 @@ tags
 # Persistent undo
 [._]*.un~
 
-# Plugins
-.vim/autoload/
-.vim/plugged/
-
 # Python
 __pycache__/
+
+# Qutebrowser
+qutebrowser/qsettings/

@@ -41,7 +41,7 @@ Plug 'j-hui/fidget.nvim'
 " --- Autocompletion
 Plug 'folke/lazydev.nvim', { 'for': 'lua' }
 Plug 'rafamadriz/friendly-snippets'
-Plug 'saghen/blink.cmp', { 'tag': 'v0.*' }
+Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
 
 " --- Miscellaneous
 Plug 'folke/twilight.nvim' 

@@ -8,6 +8,7 @@ config.load_autoconfig(False)
 
 rosepine.moon(c)
 c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.policy.images = 'never'
 
 # --- Content settings
 
@@ -93,6 +94,8 @@ c.zoom.default = '90%'
 c.tabs.indicator.width = 0
 # Padding (in pixels) around text for tabs.
 c.tabs.padding = {'top': 7, 'bottom': 7, 'left': 10, 'right': 10}
+# Which tab to select when the focused tab is removed.
+c.tabs.select_on_remove = 'last-used'
 # When to show the tab bar.
 c.tabs.show = 'multiple'
 # Hide the window decoration.
@@ -100,6 +103,8 @@ c.window.hide_decoration = True
 # Editor (and arguments) to use for the `edit-*` commands.
 c.editor.command = ['nvim', '+{line}', '{file}']
 
+## Which cookies to accept.
+# c.content.cookies.accept = 'no-3rdparty' or 'never'
 ## Enable JavaScript.
 # c.content.javascript.enabled = True
 ## Store cookies.
@@ -187,6 +192,7 @@ config.bind('J', 'nop')
 config.bind('K', 'nop')
 config.bind('m', 'bookmark-add')
 config.bind('M', 'bookmark-del')
-config.bind('b', 'bookmark-load')
-config.bind('B', 'bookmark-load -t')
-config.bind('gb', 'bookmark-list -t')
+config.bind('b', 'cmd-set-text -s bookmark-load')
+config.bind('B', 'cmd-set-text -s bookmark-load -t')
+config.bind('gb', 'cmd-set-text -s bookmark-list -t')
+config.bind('sm', 'spawn -m -v yt-dlp -t mp3 -o "~/Music/%(title)s.%(ext)s" {url}')

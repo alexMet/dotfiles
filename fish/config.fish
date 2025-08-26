@@ -1,6 +1,5 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+set --export MY_PACKAGES ~/projects/dotfiles/packages
+set --export EDITOR nvim
 
 # locale
 set --export LANG en_US.UTF-8

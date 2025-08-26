@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR EDITOR:nvim
+SETUVAR --export EDITOR:nvim
 SETUVAR --export PYENV_ROOT:/home/awelegion/\x2epyenv
 SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:747369

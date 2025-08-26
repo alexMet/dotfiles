@@ -1,0 +1,55 @@
+aardvark-dns -- Authoritative dns server for A/AAAA container records
+bash -- The GNU Bourne Again shell
+binutils -- GNU  set of programs to assemble and manipulate binary and object files
+bzip2 -- A high-quality data compression program
+coreutils -- The basic file, shell and text manipulation utilities of the GNU operating system
+fd -- Simple, fast and user-friendly alternative to find
+file -- File type identification utility
+findutils -- GNU utilities to locate files
+fish -- Smart and user friendly shell intended mostly for interactive use
+fzf -- Command-line fuzzy finder
+gawk -- GNU version of awk
+gcc -- GNU Compiler Collection - C and C++ frontends
+gcc-libs -- GNU Runtime libraries shipped by GCC
+git -- the fast distributed version control system
+glibc -- GNU C Library
+grep -- GNU string search utility
+gwenview -- A fast and easy to use image viewer
+gzip -- GNU compression utility
+inetutils -- GNU collection of common network programs
+iputils -- Network monitoring tools, including ping
+jq -- Command-line JSON processor
+less -- A terminal based program for viewing text files
+neovim -- Fork of Vim aiming to improve user experience, plugins, and GUIs
+nodejs -- Evented I/O for V8 javascript
+npm -- JavaScript package manager
+okular -- KDE Document Viewer
+openssh -- SSH protocol implementation for remote login, command execution and file transfer
+openvpn -- An easy-to-use, robust and highly configurable VPN (Virtual Private Network)
+pass -- Stores, retrieves, generates, and synchronizes passwords securely
+pipewire-alsa -- Low-latency audio/video router and processor - ALSA configuration
+pipewire-audio -- Low-latency audio/video router and processor - Audio support
+pipewire -- Low-latency audio/video router and processor
+pipewire-pulse -- Low-latency audio/video router and processor - PulseAudio replacement
+podman-compose -- A script to run docker-compose.yml using podman
+podman -- Tool and library for running OCI-based containers in pods
+python-adblock -- Brave's adblock library in Python
+python -- The Python programming language
+qutebrowser -- A keyboard-driven, vim-like browser based on Python and Qt
+raylib -- Simple and easy-to-use game programming library
+reflector -- A Python 3 module and script to retrieve and filter the latest Pacman mirror list
+ripgrep -- A search tool that combines the usability of ag with the raw speed of grep
+rtorrent -- Ncurses BitTorrent client based on libTorrent
+sed -- GNU stream editor
+tar -- GNU utility used to store, backup, and transport files
+tf-nerd-fonts-symbols-mono -- High number of extra glyphs from popular 'iconic fonts' (monospace)
+tree -- A directory listing program displaying a depth indented list of files
+ttf-hack -- A hand groomed and optically balanced typeface based on Bitstream Vera Mono
+unrar -- The RAR uncompression program
+unzip -- For extracting and viewing files in .zip archives
+uv -- An extremely fast Python package installer and resolver written in Rust
+vlc -- Multi-platform MPEG, VCD/DVD, and DivX player
+which -- A utility to show the full path of commands
+wireplumber -- Session / policy manager implementation for PipeWire
+xclip -- Command line interface to the X11 clipboard
+yt-dlp -- A youtube-dl fork with additional features and fixes

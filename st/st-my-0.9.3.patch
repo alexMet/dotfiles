@@ -1,0 +1,410 @@
+diff --git a/config.def.h b/config.def.h
+index 2cd740a..1f596e7 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -5,7 +5,7 @@
+  *
+  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
+  */
+-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
++static char *font = "Liberation Mono:pixelsize=14:antialias=true:autohint=true";
+ static int borderpx = 2;
+ 
+ /*
+@@ -93,35 +93,30 @@ char *termname = "st-256color";
+  */
+ unsigned int tabspaces = 8;
+ 
++/* bg opacity */
++float alpha = 0.8;
++
+ /* Terminal colors (16 first used in escape sequence) */
+ static const char *colorname[] = {
+-	/* 8 normal colors */
+-	"black",
+-	"red3",
+-	"green3",
+-	"yellow3",
+-	"blue2",
+-	"magenta3",
+-	"cyan3",
+-	"gray90",
+-
+-	/* 8 bright colors */
+-	"gray50",
+-	"red",
+-	"green",
+-	"yellow",
+-	"#5c5cff",
+-	"magenta",
+-	"cyan",
+-	"white",
+-
+-	[255] = 0,
+-
+-	/* more colors can be added after 255 to use with DefaultXX */
+-	"#cccccc",
+-	"#555555",
+-	"gray90", /* default foreground colour */
+-	"black", /* default background colour */
++    "#393552",
++    "#eb6f92",
++    "#9ccfd8",
++    "#f6c177",
++    "#3e8fb0",
++    "#c4a7e7",
++    "#ea9a97",
++    "#e0def4",
++    "#6e6a86",
++    "#eb6f92",
++    "#9ccfd8",
++    "#f6c177",
++    "#3e8fb0",
++    "#c4a7e7",
++    "#ea9a97",
++    "#e0def4",
++    [255] = 0,
++    /* more colors can be added after 255 to use with DefaultXX */
++    [256] = "#232136",
+ };
+ 
+ 
+@@ -129,10 +124,10 @@ static const char *colorname[] = {
+  * Default colors (colorname index)
+  * foreground, background, cursor, reverse cursor
+  */
+-unsigned int defaultfg = 258;
+-unsigned int defaultbg = 259;
+-unsigned int defaultcs = 256;
+-static unsigned int defaultrcs = 257;
++unsigned int defaultfg = 7;
++unsigned int defaultbg = 256;
++unsigned int defaultcs = 7;
++static unsigned int defaultrcs = 7;
+ 
+ /*
+  * Default shape of cursor
+@@ -472,3 +467,14 @@ static char ascii_printable[] =
+ 	" !\"#$%&'()*+,-./0123456789:;<=>?"
+ 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
+ 	"`abcdefghijklmnopqrstuvwxyz{|}~";
++
++/*
++ * Open urls starting with urlprefixes, contatining urlchars
++ * by passing as ARG1 to urlhandler.
++ */
++char* urlhandler = "xdg-open";
++char urlchars[] =
++	"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
++	"abcdefghijklmnopqrstuvwxyz"
++	"0123456789-._~:/?#@!$&'*+,;=%";
++char* urlprefixes[] = {"http://", "https://", NULL};
+diff --git a/st.c b/st.c
+index 8e57991..6184ef8 100644
+--- a/st.c
++++ b/st.c
+@@ -636,6 +636,95 @@ getsel(void)
+ 	return str;
+ }
+ 
++char *
++strstrany(char* s, char** strs) {
++	char *match;
++	for (int i = 0; strs[i]; i++) {
++		if ((match = strstr(s, strs[i]))) {
++			return match;
++		}
++	}
++	return NULL;
++}
++
++void
++highlighturls(void)
++{
++	char *match;
++	char *linestr = calloc(sizeof(char), term.col+1); /* assume ascii */
++	for (int i = term.top; i < term.bot; i++) {
++		int url_start = -1;
++		for (int j = 0; j < term.col; j++) {
++			if (term.line[i][j].u < 127) {
++				linestr[j] = term.line[i][j].u;
++			}
++			linestr[term.col] = '\0';
++		}
++		while ((match = strstrany(linestr + url_start + 1, urlprefixes))) {
++			url_start = match - linestr;
++			for (int c = url_start; c < term.col && strchr(urlchars, linestr[c]); c++) {
++				term.line[i][c].mode |= ATTR_URL;
++				tsetdirt(i, c);
++			}
++		}
++	}
++	free(linestr);
++}
++
++void
++unhighlighturls(void)
++{
++	for (int i = term.top; i < term.bot; i++) {
++		for (int j = 0; j < term.col; j++) {
++			Glyph* g = &term.line[i][j];
++			if (g->mode & ATTR_URL) {
++				g->mode &= ~ATTR_URL;
++				tsetdirt(i, j);
++			}
++		}
++	}
++	return;
++}
++
++void
++followurl(int x, int y) {
++	char *linestr = calloc(sizeof(char), term.col+1); /* assume ascii */
++	char *match;
++	for (int i = 0; i < term.col; i++) {
++		if (term.line[x][i].u < 127) {
++			linestr[i] = term.line[x][i].u;
++		}
++		linestr[term.col] = '\0';
++	}
++	int url_start = -1;
++	while ((match = strstrany(linestr + url_start + 1, urlprefixes))) {
++		url_start = match - linestr;
++		int url_end = url_start;
++		for (int c = url_start; c < term.col && strchr(urlchars, linestr[c]); c++) {
++			url_end++;
++		}
++		if (url_start <= y && y < url_end) {
++			linestr[url_end] = '\0';
++			break;
++		}
++	}
++	if (url_start == -1) {
++		free(linestr);
++		return;
++	}
++
++	pid_t chpid;
++	if ((chpid = fork()) == 0) {
++		if (fork() == 0)
++			execlp(urlhandler, urlhandler, linestr + url_start, NULL);
++		exit(1);
++	}
++	if (chpid > 0)
++		waitpid(chpid, NULL, 0);
++	free(linestr);
++	unhighlighturls();
++}
++
+ void
+ selclear(void)
+ {
+diff --git a/st.h b/st.h
+index fd3b0d8..a8c58aa 100644
+--- a/st.h
++++ b/st.h
+@@ -34,6 +34,7 @@ enum glyph_attribute {
+ 	ATTR_WIDE       = 1 << 9,
+ 	ATTR_WDUMMY     = 1 << 10,
+ 	ATTR_BOLD_FAINT = ATTR_BOLD | ATTR_FAINT,
++	ATTR_URL	= 1 << 14,
+ };
+ 
+ enum selection_mode {
+@@ -105,6 +106,10 @@ void selextend(int, int, int, int);
+ int selected(int, int);
+ char *getsel(void);
+ 
++void highlighturls(void);
++void unhighlighturls(void);
++void followurl(int, int);
++
+ size_t utf8encode(Rune, char *);
+ 
+ void *xmalloc(size_t);
+@@ -124,3 +129,7 @@ extern unsigned int tabspaces;
+ extern unsigned int defaultfg;
+ extern unsigned int defaultbg;
+ extern unsigned int defaultcs;
++extern char *urlhandler;
++extern char urlchars[];
++extern char *urlprefixes[];
++extern int nurlprefixes;
+diff --git a/x.c b/x.c
+index d73152b..8578878 100644
+--- a/x.c
++++ b/x.c
+@@ -105,6 +105,7 @@ typedef struct {
+ 	XSetWindowAttributes attrs;
+ 	int scr;
+ 	int isfixed; /* is fixed geometry? */
++	int depth; /* bit depth */
+ 	int l, t; /* left and top offset */
+ 	int gm; /* geometry mask */
+ } XWindow;
+@@ -191,6 +192,7 @@ static void usage(void);
+ 
+ static void (*handler[LASTEvent])(XEvent *) = {
+ 	[KeyPress] = kpress,
++	[KeyRelease] = kpress,
+ 	[ClientMessage] = cmessage,
+ 	[ConfigureNotify] = resize,
+ 	[VisibilityNotify] = visibility,
+@@ -452,6 +454,15 @@ mouseaction(XEvent *e, uint release)
+ 	/* ignore Button<N>mask for Button<N> - it's set on release */
+ 	uint state = e->xbutton.state & ~buttonmask(e->xbutton.button);
+ 
++	if (release == 0 &&
++	    e->xbutton.button == Button1 &&
++	    (match(ControlMask, state) ||
++	     match(ControlMask, state & ~forcemousemod))) {
++		followurl(evrow(e), evcol(e));
++		return 1;
++	}
++
++
+ 	for (ms = mshortcuts; ms < mshortcuts + LEN(mshortcuts); ms++) {
+ 		if (ms->release == release &&
+ 		    ms->button == e->xbutton.button &&
+@@ -752,7 +763,7 @@ xresize(int col, int row)
+ 
+ 	XFreePixmap(xw.dpy, xw.buf);
+ 	xw.buf = XCreatePixmap(xw.dpy, xw.win, win.w, win.h,
+-			DefaultDepth(xw.dpy, xw.scr));
++			xw.depth);
+ 	XftDrawChange(xw.draw, xw.buf);
+ 	xclear(0, 0, win.w, win.h);
+ 
+@@ -812,6 +823,10 @@ xloadcols(void)
+ 			else
+ 				die("could not allocate color %d\n", i);
+ 		}
++
++	dc.col[defaultbg].color.alpha = (unsigned short)(0xffff * alpha);
++	dc.col[defaultbg].pixel &= 0x00FFFFFF;
++	dc.col[defaultbg].pixel |= (unsigned char)(0xff * alpha) << 24;
+ 	loaded = 1;
+ }
+ 
+@@ -842,6 +857,12 @@ xsetcolorname(int x, const char *name)
+ 	XftColorFree(xw.dpy, xw.vis, xw.cmap, &dc.col[x]);
+ 	dc.col[x] = ncolor;
+ 
++	if (x == defaultbg) {
++		dc.col[defaultbg].color.alpha = (unsigned short)(0xffff * alpha);
++		dc.col[defaultbg].pixel &= 0x00FFFFFF;
++		dc.col[defaultbg].pixel |= (unsigned char)(0xff * alpha) << 24;
++	}
++
+ 	return 0;
+ }
+ 
+@@ -869,8 +890,8 @@ xhints(void)
+ 	sizeh->flags = PSize | PResizeInc | PBaseSize | PMinSize;
+ 	sizeh->height = win.h;
+ 	sizeh->width = win.w;
+-	sizeh->height_inc = win.ch;
+-	sizeh->width_inc = win.cw;
++	sizeh->height_inc = 1;
++	sizeh->width_inc = 1;
+ 	sizeh->base_height = 2 * borderpx;
+ 	sizeh->base_width = 2 * borderpx;
+ 	sizeh->min_height = win.ch + 2 * borderpx;
+@@ -1134,11 +1155,25 @@ xinit(int cols, int rows)
+ 	Window parent, root;
+ 	pid_t thispid = getpid();
+ 	XColor xmousefg, xmousebg;
++	XWindowAttributes attr;
++	XVisualInfo vis;
+ 
+ 	if (!(xw.dpy = XOpenDisplay(NULL)))
+ 		die("can't open display\n");
+ 	xw.scr = XDefaultScreen(xw.dpy);
+-	xw.vis = XDefaultVisual(xw.dpy, xw.scr);
++
++	root = XRootWindow(xw.dpy, xw.scr);
++	if (!(opt_embed && (parent = strtol(opt_embed, NULL, 0))))
++		parent = root;
++
++	if (XMatchVisualInfo(xw.dpy, xw.scr, 32, TrueColor, &vis) != 0) {
++		xw.vis = vis.visual;
++		xw.depth = vis.depth;
++	} else {
++		XGetWindowAttributes(xw.dpy, parent, &attr);
++		xw.vis = attr.visual;
++		xw.depth = attr.depth;
++	}
+ 
+ 	/* font */
+ 	if (!FcInit())
+@@ -1148,7 +1183,7 @@ xinit(int cols, int rows)
+ 	xloadfonts(usedfont, 0);
+ 
+ 	/* colors */
+-	xw.cmap = XDefaultColormap(xw.dpy, xw.scr);
++	xw.cmap = XCreateColormap(xw.dpy, parent, xw.vis, None);
+ 	xloadcols();
+ 
+ 	/* adjust fixed window geometry */
+@@ -1168,11 +1203,8 @@ xinit(int cols, int rows)
+ 		| ButtonMotionMask | ButtonPressMask | ButtonReleaseMask;
+ 	xw.attrs.colormap = xw.cmap;
+ 
+-	root = XRootWindow(xw.dpy, xw.scr);
+-	if (!(opt_embed && (parent = strtol(opt_embed, NULL, 0))))
+-		parent = root;
+-	xw.win = XCreateWindow(xw.dpy, root, xw.l, xw.t,
+-			win.w, win.h, 0, XDefaultDepth(xw.dpy, xw.scr), InputOutput,
++	xw.win = XCreateWindow(xw.dpy, parent, xw.l, xw.t,
++			win.w, win.h, 0, xw.depth, InputOutput,
+ 			xw.vis, CWBackPixel | CWBorderPixel | CWBitGravity
+ 			| CWEventMask | CWColormap, &xw.attrs);
+ 	if (parent != root)
+@@ -1183,7 +1215,7 @@ xinit(int cols, int rows)
+ 	dc.gc = XCreateGC(xw.dpy, xw.win, GCGraphicsExposures,
+ 			&gcvalues);
+ 	xw.buf = XCreatePixmap(xw.dpy, xw.win, win.w, win.h,
+-			DefaultDepth(xw.dpy, xw.scr));
++			xw.depth);
+ 	XSetForeground(xw.dpy, dc.gc, dc.col[defaultbg].pixel);
+ 	XFillRectangle(xw.dpy, xw.buf, dc.gc, 0, 0, win.w, win.h);
+ 
+@@ -1495,7 +1527,7 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
+ 	XftDrawGlyphFontSpec(xw.draw, fg, specs, len);
+ 
+ 	/* Render underline and strikethrough. */
+-	if (base.mode & ATTR_UNDERLINE) {
++	if (base.mode & ATTR_UNDERLINE || base.mode & ATTR_URL) {
+ 		XftDrawRect(xw.draw, fg, winx, winy + dc.font.ascent * chscale + 1,
+ 				width, 1);
+ 	}
+@@ -1859,6 +1891,18 @@ kpress(XEvent *ev)
+ 	} else {
+ 		len = XLookupString(e, buf, sizeof buf, &ksym, NULL);
+ 	}
++
++    /* 0. highlight URLs when control held */
++	if (ksym == XK_Control_L) {
++		highlighturls();
++	} else if (ev->type == KeyRelease && e->keycode == XKeysymToKeycode(e->display, XK_Control_L)) {
++		unhighlighturls();
++	}
++
++	/* KeyRelease not relevant to shortcuts */
++	if (ev->type == KeyRelease)
++		return;
++
+ 	/* 1. shortcuts */
+ 	for (bp = shortcuts; bp < shortcuts + LEN(shortcuts); bp++) {
+ 		if (ksym == bp->keysym && match(bp->mod, e->state)) {
+@@ -2047,6 +2091,10 @@ main(int argc, char *argv[])
+ 	case 'a':
+ 		allowaltscreen = 0;
+ 		break;
++	case 'A':
++		alpha = strtof(EARGF(usage()), NULL);
++		LIMIT(alpha, 0.0, 1.0);
++		break;
+ 	case 'c':
+ 		opt_class = EARGF(usage());
+ 		break;

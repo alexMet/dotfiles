@@ -2,7 +2,7 @@
 
 # dotfiles
 
-My dotfiles for `archlinux` using `KDE` with tools like `nvim, fish, git, podman, rtorrent...`
+My dotfiles for `archlinux` tools like `ly, dwm, st, qutebrowser, nvim, fish...`
 
 Copy paste freely.
 
@@ -23,6 +23,22 @@ make install
 
 A makefile for everyday commands and setting up all these.
 
+**Display manager** [ly](https://codeberg.org/fairyglade/ly)
+
+**Window manager** [dwm](https://dwm.suckless.org/)
+
+- Patch for gaps [https://dwm.suckless.org/patches/fullgaps/]
+- Patch for hiding tags [https://dwm.suckless.org/patches/hide_vacant_tags/]
+
+**Terminal emulator** [st](https://st.suckless.org/)
+
+- Patch for transparent background [https://st.suckless.org/patches/alpha/]
+- Patch for clickable urls [https://st.suckless.org/patches/clickurl/]
+- Patch for scroll back [https://st.suckless.org/patches/scrollback/]
+- Patch for any size [https://st.suckless.org/patches/anysize/]
+
+**Shell** [fish](https://fishshell.com/)
+
 **Editor** [neovim](https://neovim.io/)
 
 - Inspired by [theprimeagen](https://www.youtube.com/watch?v=w7i4amO_zaE) & [teej](https://www.youtube.com/watch?v=m8C0Cq9Uv9o)
@@ -36,10 +52,6 @@ A makefile for everyday commands and setting up all these.
 - Syntax highlighting with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - Language server protocol with [native-lsp](https://github.com/neovim/nvim-lspconfig)
 
-**Terminal emulator** [konsole](https://konsole.kde.org/)
-
-**Shell** [fish](https://fishshell.com/)
-
-**Containers** [podman](https://podman.io/)
+**Browser** [qutebrowser](https://qutebrowser.org/)
 
 **Torrents** [rtorrent](https://rakshasa.github.io/rtorrent/)

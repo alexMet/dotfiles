@@ -64,4 +64,5 @@ which -- A utility to show the full path of commands
 wireplumber -- Session / policy manager implementation for PipeWire
 xclip -- Command line interface to the X11 clipboard
 xcompmgr -- Composite window effect manager for X.org
+xorg-xinit -- X.Org initialisation program
 yt-dlp -- A youtube-dl fork with additional features and fixes

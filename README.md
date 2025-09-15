@@ -34,7 +34,6 @@ A makefile for everyday commands and setting up all these.
 
 - Patch for transparent background [https://st.suckless.org/patches/alpha/]
 - Patch for clickable urls [https://st.suckless.org/patches/clickurl/]
-- Patch for scroll back [https://st.suckless.org/patches/scrollback/]
 - Patch for any size [https://st.suckless.org/patches/anysize/]
 
 **Shell** [fish](https://fishshell.com/)

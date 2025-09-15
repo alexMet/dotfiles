@@ -1,9 +1,11 @@
-redshift -PO 4000
+#!/bin/sh
 
-feh --no-fehbg --bg-fill $HOME/dotfile/wallpapers/$RANDOM
+redshift -PO 4000
+feh --no-fehbg --bg-fill $HOME/projects/dotfiles/wallpapers/leafy-moon.png
 
 xcompmgr -n &
-st &
+slstatus &
+st -e tmux &
 qutebrowser --restore default &
 
 exec dwm

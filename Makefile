@@ -18,10 +18,11 @@ packages:
 	git clone https://git.suckless.org/dwm ../dwm/
 	# TODO apply patches
 	cd dwm && make && sudo make install && make clean
-	# Switch to .xinitrc
-	mkdir /usr/share/xsessions/
-	cp dwm.desktop /usr/share/xsessions/
-	chown root root /usr/share/xsessions/dwm.desktop
+	# mkdir /usr/share/xsessions/
+	# cp dwm.desktop /usr/share/xsessions/
+	# chown root root /usr/share/xsessions/dwm.desktop
+	chmod u+x $(DOTFILES)/.xinitrc
+	ln -s $(DOTFILES)/.xinitrc .xinitrc
 	
 	# --- TODO st
 	git clone https://git.suckless.org/st ../st/
@@ -37,7 +38,7 @@ packages:
 	# https://wiki.archlinux.org/title/Cursor_themes
 	# NOTE Should I download them separetly and symlink the index.theme from default?
 	mkdir -p $HOME/.local/share/icons/default/
-	curl -L https://github.com/rose-pine/cursor/releases/latest/download/BreezeX-RosePine-Linux.tar.xz | tar -xvJ -C $HOME/.local/share/icons/default --strip-components=1
+	curl -L https://github.com/rose-pine/cursor/releases/latest/download/BreezeX-RosePine-Linux.tar.xz | tar -xvJ -C $(HOME)/.local/share/icons/default --strip-components=1
 
 	# --- TODO neovim
 	ln -s $(DOTFILES)/nvim $(CONFIG)/nvim

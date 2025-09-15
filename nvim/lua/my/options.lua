@@ -16,6 +16,7 @@ vim.opt.splitright = true       -- Split vertically to the right
 vim.opt.scrolloff = 10          -- Keep some lines around the cursor
 vim.opt.wrap = false            -- Don't wrap lines around
 vim.wo.signcolumn = 'yes'       -- Keep signcolumn on by default
+vim.opt.termguicolors = true    -- Enable true color support
 
 --- Searching
 vim.opt.ignorecase = true   -- Ignore case when searching
@@ -26,10 +27,6 @@ vim.opt.completeopt = 'menuone,noselect'
 
 --- Backup
 vim.opt.swapfile = false    -- Don't create .swp files
-
---- Colors
-vim.opt.termguicolors = true            -- Enable true color support
-vim.cmd.colorscheme('rose-pine-moon')   -- Set the colorscheme
 
 --- File tree browser
 vim.g.netrw_banner = 0      -- Hide the banner

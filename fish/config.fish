@@ -5,6 +5,10 @@ set --export EDITOR nvim
 set --export LANG en_US.UTF-8
 set --export LC_MESSAGES "C"
 
+# nnn
+set --export NNN_FIFO /tmp/nnn.info
+set --export NNN_PLUG "p:preview"
+
 # search
 fzf --fish | source
 set --export FZF_DEFAULT_OPTS "
@@ -21,3 +25,11 @@ set --export FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 
 # theme
 fish_config theme choose "Rosé Pine"
+
+# start X at login
+if status is-login
+    if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+        exec startx -- -keeptty
+    end
+end
+

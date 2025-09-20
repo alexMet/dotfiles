@@ -23,8 +23,6 @@ make install
 
 A makefile for everyday commands and setting up all these.
 
-**Display manager** [ly](https://codeberg.org/fairyglade/ly)
-
 **Window manager** [dwm](https://dwm.suckless.org/)
 
 - Patch for gaps [https://dwm.suckless.org/patches/fullgaps/]
@@ -37,6 +35,8 @@ A makefile for everyday commands and setting up all these.
 - Patch for any size [https://st.suckless.org/patches/anysize/]
 
 **Shell** [fish](https://fishshell.com/)
+
+- Also starts X instead of a display manager
 
 **Editor** [neovim](https://neovim.io/)
 

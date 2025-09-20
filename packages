@@ -22,7 +22,6 @@ inetutils -- GNU collection of common network programs
 iputils -- Network monitoring tools, including ping
 jq -- Command-line JSON processor
 less -- A terminal based program for viewing text files
-ly -- TUI display manager
 mpv -- a free, open source, and cross-platform media player
 mupdf -- Lightweight PDF and XPS viewer
 neovim -- Fork of Vim aiming to improve user experience, plugins, and GUIs

@@ -1,10 +1,13 @@
 aardvark-dns -- Authoritative dns server for A/AAAA container records
 bash -- The GNU Bourne Again shell
 binutils -- GNU  set of programs to assemble and manipulate binary and object files
+bluez -- Daemons for the bluetooth protocol stack
+bluez-utils -- Development and debugging utilities for the bluetooth protocol stack
 brightnessctl -- Lightweight brightness control tool
 bzip2 -- A high-quality data compression program
 coreutils -- The basic file, shell and text manipulation utilities of the GNU operating system
 dmenu -- Generic menu for X
+dunst -- Customizable and lightweight notification-daemon
 fd -- Simple, fast and user-friendly alternative to find
 feh -- Fast and light imlib2-based image viewer
 file -- File type identification utility
@@ -22,6 +25,7 @@ inetutils -- GNU collection of common network programs
 iputils -- Network monitoring tools, including ping
 jq -- Command-line JSON processor
 less -- A terminal based program for viewing text files
+libnotify -- Library for sending desktop notifications
 mpv -- a free, open source, and cross-platform media player
 mupdf -- Lightweight PDF and XPS viewer
 neovim -- Fork of Vim aiming to improve user experience, plugins, and GUIs

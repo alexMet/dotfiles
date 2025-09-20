@@ -16,12 +16,10 @@ Copy paste freely.
 Clone the project and then from the root folder run:
 
 ```bash
-make install
+TODO ...
 ```
 
 ## Stuff in here
-
-A makefile for everyday commands and setting up all these.
 
 **Window manager** [dwm](https://dwm.suckless.org/)
 

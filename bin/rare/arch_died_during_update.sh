@@ -18,6 +18,7 @@ pacman -Syu
 pacman -S linux
 
 # --- Fix broken packages
+# https://wiki.archlinux.org/title/Pacman#Reinstall_broken_or_out-of-sync_packages
 while IFS=: read -r package _; do
     echo "Processing package: $package"; 
     pacman -S --dbonly --noconfirm $package;

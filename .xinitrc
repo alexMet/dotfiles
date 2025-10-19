@@ -41,12 +41,14 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
     unset f
 fi
 
-redshift -PO 4000
+setxkbmap -layout us,gr -option 'grp:win_space_toggle'
+brightnessctl -q s 30%
+redshift -PO 3000
 feh --no-fehbg --bg-fill $HOME/projects/dotfiles/wallpapers/leafy-moon.png
 
 xcompmgr -n &
 slstatus &
 st -e tmux &
-qutebrowser --restore default &
+brave &
 
 exec dwm

@@ -40,11 +40,15 @@ window_manager() {
 }
 
 # --- Setup the terminal emulator
+# --- And a terminal multiplexer
 # https://wiki.archlinux.org/title/St
 terminal() {
 	git clone https://git.suckless.org/st ../st/
 	# TODO apply patches
 	cd st/ && make && sudo make install && make clean
+
+    sudo pacman -S tmux
+	ln -s "$DOTFILES"/nvim "$CONFIG"/.tmux.conf
 }
 
 # --- Setup the status monitor
@@ -75,6 +79,7 @@ desktop_notifications() {
 # --- Setup the text editor
 # https://wiki.archlinux.org/title/Neovim
 text_editor() {
+    sudo pacman -S nvim
 	ln -s "$DOTFILES"/nvim "$CONFIG"/nvim
 }
 
@@ -89,6 +94,7 @@ shell() {
 # --- Setup the torrent downloads
 # https://wiki.archlinux.org/title/RTorrent
 torrent() {
+    sudo pacman -S rtorrent
 	mkdir -p "$HOME"/rtorret
 	mkdir -p "$HOME"/rtorret/watch
 	mkdir -p "$HOME"/rtorret/downloads

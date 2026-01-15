@@ -1,4 +1,7 @@
 aardvark-dns -- Authoritative dns server for A/AAAA container records
+acpi -- Client for battery, power, and thermal readings
+android-tools -- Android platform tools
+android-udev -- Udev rules to connect Android devices to your linux box
 bash -- The GNU Bourne Again shell
 binutils -- GNU  set of programs to assemble and manipulate binary and object files
 bluez -- Daemons for the bluetooth protocol stack
@@ -26,15 +29,14 @@ iputils -- Network monitoring tools, including ping
 jq -- Command-line JSON processor
 less -- A terminal based program for viewing text files
 libnotify -- Library for sending desktop notifications
+minisign -- A dead-simple tool to sign files and verify digital signatures
 mpv -- a free, open source, and cross-platform media player
-mupdf -- Lightweight PDF and XPS viewer
 neovim -- Fork of Vim aiming to improve user experience, plugins, and GUIs
 nnn -- The fastest terminal file manager ever written.
 nodejs -- Evented I/O for V8 javascript
 npm -- JavaScript package manager
 nsxiv -- Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
 openssh -- SSH protocol implementation for remote login, command execution and file transfer
-openvpn -- An easy-to-use, robust and highly configurable VPN (Virtual Private Network)
 pass -- Stores, retrieves, generates, and synchronizes passwords securely
 patch -- A utility to apply patch files to original sources
 pipewire-alsa -- Low-latency audio/video router and processor - ALSA configuration
@@ -44,9 +46,8 @@ pipewire-pulse -- Low-latency audio/video router and processor - PulseAudio repl
 pkgconf -- Package compiler and linker metadata toolkit
 podman-compose -- A script to run docker-compose.yml using podman
 podman -- Tool and library for running OCI-based containers in pods
-python-adblock -- Brave's adblock library in Python
+powertop -- A tool to diagnose issues with power consumption and power management
 python -- The Python programming language
-qutebrowser -- A keyboard-driven, vim-like browser based on Python and Qt
 raylib -- Simple and easy-to-use game programming library
 redshift -- Adjusts the color temperature of your screen according to your surroundings.
 reflector -- A Python 3 module and script to retrieve and filter the latest Pacman mirror list
@@ -67,5 +68,12 @@ which -- A utility to show the full path of commands
 wireplumber -- Session / policy manager implementation for PipeWire
 xclip -- Command line interface to the X11 clipboard
 xcompmgr -- Composite window effect manager for X.org
+xdg-utils -- Command line tools that assist applications with a variety of desktop integration tasks
+xorg-server-common -- Xorg server common files
+xorg-server -- Xorg X server
 xorg-xinit -- X.Org initialisation program
+xorg-xkbcomp -- X Keyboard description compiler
+xorg-xrandr -- Primitive command line interface to RandR extension
+xorg-xsetroot -- Classic X utility to set your root window background to a given pattern or color
 yt-dlp -- A youtube-dl fork with additional features and fixes
+zathura -- Minimalistic document viewer

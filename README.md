@@ -2,7 +2,7 @@
 
 # dotfiles
 
-My dotfiles for `archlinux` tools like `ly, dwm, st, qutebrowser, nvim, fish...`
+My dotfiles for `archlinux` tools like `dwm, st, qutebrowser, nvim, fish...`
 
 Copy paste freely.
 
@@ -21,23 +21,27 @@ TODO ...
 
 ## Stuff in here
 
-**Window manager** [dwm](https://dwm.suckless.org/)
+**Window manager**
 
+- [dwm](https://dwm.suckless.org/)
 - Patch for gaps [https://dwm.suckless.org/patches/fullgaps/]
 - Patch for hiding tags [https://dwm.suckless.org/patches/hide_vacant_tags/]
 
-**Terminal emulator** [st](https://st.suckless.org/)
+**Terminal emulator**
 
+- [st](https://st.suckless.org/)
 - Patch for transparent background [https://st.suckless.org/patches/alpha/]
 - Patch for clickable urls [https://st.suckless.org/patches/clickurl/]
 - Patch for any size [https://st.suckless.org/patches/anysize/]
 
-**Shell** [fish](https://fishshell.com/)
+**Shell**
 
+- [fish](https://fishshell.com/)
 - Also starts X instead of a display manager
 
-**Editor** [neovim](https://neovim.io/)
+**Editor**
 
+- [neovim](https://neovim.io/)
 - Inspired by [theprimeagen](https://www.youtube.com/watch?v=w7i4amO_zaE) & [teej](https://www.youtube.com/watch?v=m8C0Cq9Uv9o)
 - Custom bindings that work for me
 - Package manager with [plug](https://github.com/junegunn/vim-plug)
@@ -49,6 +53,11 @@ TODO ...
 - Syntax highlighting with [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - Language server protocol with [native-lsp](https://github.com/neovim/nvim-lspconfig)
 
-**Browser** [qutebrowser](https://qutebrowser.org/)
+**Browser**
 
-**Torrents** [rtorrent](https://rakshasa.github.io/rtorrent/)
+- Either [qutebrowser](https://qutebrowser.org/)
+- Or [brave](https://brave.com/)
+
+**Torrents**
+
+- [rtorrent](https://rakshasa.github.io/rtorrent/)

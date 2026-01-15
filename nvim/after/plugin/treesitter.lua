@@ -1,4 +1,4 @@
-require('nvim-treesitter.configs').setup({
+require('nvim-treesitter').setup({
   ensure_installed = {
     'c',
     'go',
@@ -25,59 +25,63 @@ require('nvim-treesitter.configs').setup({
       node_decremental = '<BS>',
     },
   },
-  textobjects = {
-    select = {
-      enable = true,
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ['aa'] = '@parameter.outer',
-        ['ia'] = '@parameter.inner',
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-        ['ii'] = '@conditional.inner',
-        ['ai'] = '@conditional.outer',
-        ['il'] = '@loop.inner',
-        ['al'] = '@loop.outer',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        [']a'] = '@parameter.inner',
-        [']f'] = '@function.outer',
-        [']c'] = '@class.outer',
-      },
-      goto_next_end = {
-        [']A'] = '@parameter.inner',
-        [']F'] = '@function.outer',
-        [']C'] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[a'] = '@parameter.inner',
-        ['[f'] = '@function.outer',
-        ['[c'] = '@class.outer',
-      },
-      goto_previous_end = {
-        ['[A'] = '@parameter.inner',
-        ['[F'] = '@function.outer',
-        ['[C'] = '@class.outer',
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        ['<leader>sa'] = '@parameter.inner',
-      },
-      swap_previous = {
-        ['<leader>sA'] = '@parameter.inner',
-      },
-    },
-  },
 })
+
+-- TODO: Figure this shit out later
+-- require('nvim-treesitter.configs').setup({
+--   textobjects = {
+--     select = {
+--       enable = true,
+--       -- Automatically jump forward to textobj, similar to targets.vim
+--       lookahead = true,
+--       keymaps = {
+--         -- You can use the capture groups defined in textobjects.scm
+--         ['aa'] = '@parameter.outer',
+--         ['ia'] = '@parameter.inner',
+--         ['af'] = '@function.outer',
+--         ['if'] = '@function.inner',
+--         ['ac'] = '@class.outer',
+--         ['ic'] = '@class.inner',
+--         ['ii'] = '@conditional.inner',
+--         ['ai'] = '@conditional.outer',
+--         ['il'] = '@loop.inner',
+--         ['al'] = '@loop.outer',
+--       },
+--     },
+--     move = {
+--       enable = true,
+--       set_jumps = true, -- whether to set jumps in the jumplist
+--       goto_next_start = {
+--         [']a'] = '@parameter.inner',
+--         [']f'] = '@function.outer',
+--         [']c'] = '@class.outer',
+--       },
+--       goto_next_end = {
+--         [']A'] = '@parameter.inner',
+--         [']F'] = '@function.outer',
+--         [']C'] = '@class.outer',
+--       },
+--       goto_previous_start = {
+--         ['[a'] = '@parameter.inner',
+--         ['[f'] = '@function.outer',
+--         ['[c'] = '@class.outer',
+--       },
+--       goto_previous_end = {
+--         ['[A'] = '@parameter.inner',
+--         ['[F'] = '@function.outer',
+--         ['[C'] = '@class.outer',
+--       },
+--     },
+--     swap = {
+--       enable = true,
+--       swap_next = {
+--         ['<leader>sa'] = '@parameter.inner',
+--       },
+--       swap_previous = {
+--         ['<leader>sA'] = '@parameter.inner',
+--       },
+--     },
+--   },
+-- })
 
 require('ibl').setup({scope = {enabled = false}})

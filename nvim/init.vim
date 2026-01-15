@@ -29,7 +29,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " --- Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+"Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 " --- LSP Support and managing servers
@@ -44,7 +44,7 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
 
 " --- Miscellaneous
-Plug 'folke/twilight.nvim' 
+Plug 'folke/twilight.nvim'
 Plug 'eandrju/cellular-automaton.nvim'
 
 call plug#end()

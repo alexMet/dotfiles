@@ -29,12 +29,11 @@ iputils -- Network monitoring tools, including ping
 jq -- Command-line JSON processor
 less -- A terminal based program for viewing text files
 libnotify -- Library for sending desktop notifications
+linux-headers -- Headers and scripts for building modules for the Linux kernel
 minisign -- A dead-simple tool to sign files and verify digital signatures
 mpv -- a free, open source, and cross-platform media player
 neovim -- Fork of Vim aiming to improve user experience, plugins, and GUIs
 nnn -- The fastest terminal file manager ever written.
-nodejs -- Evented I/O for V8 javascript
-npm -- JavaScript package manager
 nsxiv -- Neo (or New or Not) Simple (or Small or Suckless) X Image Viewer
 openssh -- SSH protocol implementation for remote login, command execution and file transfer
 pass -- Stores, retrieves, generates, and synchronizes passwords securely
@@ -76,4 +75,3 @@ xorg-xkbcomp -- X Keyboard description compiler
 xorg-xrandr -- Primitive command line interface to RandR extension
 xorg-xsetroot -- Classic X utility to set your root window background to a given pattern or color
 yt-dlp -- A youtube-dl fork with additional features and fixes
-zathura -- Minimalistic document viewer

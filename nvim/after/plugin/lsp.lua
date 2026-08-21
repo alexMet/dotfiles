@@ -46,9 +46,6 @@ require('mason-lspconfig').setup({
     'clangd',
     'lua_ls',
     'ols',
-    'pyright',
-    'svelte',
-    'tailwindcss',
   },
   handlers = {
     function(server_name)

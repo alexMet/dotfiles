@@ -43,6 +43,7 @@ pipewire-audio -- Low-latency audio/video router and processor - Audio support
 pipewire -- Low-latency audio/video router and processor
 pipewire-pulse -- Low-latency audio/video router and processor - PulseAudio replacement
 pkgconf -- Package compiler and linker metadata toolkit
+playerctl -- mpris media player controller and lib for spotify, vlc, audacious, bmp, xmms2, and others.
 podman-compose -- A script to run docker-compose.yml using podman
 podman -- Tool and library for running OCI-based containers in pods
 powertop -- A tool to diagnose issues with power consumption and power management

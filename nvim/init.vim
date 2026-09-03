@@ -12,9 +12,9 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 
 " --- UI / UX
 Plug 'rose-pine/neovim', {'as': 'rose-pine.nvim' }
-Plug 'nvim-lualine/lualine.nvim'
 Plug 'folke/which-key.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " --- Tpope
 Plug 'tpope/vim-fugitive'
@@ -42,10 +42,6 @@ Plug 'j-hui/fidget.nvim'
 Plug 'folke/lazydev.nvim', { 'for': 'lua' }
 Plug 'rafamadriz/friendly-snippets'
 Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
-
-" --- Miscellaneous
-Plug 'folke/twilight.nvim'
-Plug 'eandrju/cellular-automaton.nvim'
 
 call plug#end()
 

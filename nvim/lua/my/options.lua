@@ -17,6 +17,7 @@ vim.opt.scrolloff = 10          -- Keep some lines around the cursor
 vim.opt.wrap = false            -- Don't wrap lines around
 vim.wo.signcolumn = 'yes'       -- Keep signcolumn on by default
 vim.opt.termguicolors = true    -- Enable true color support
+vim.opt.statusline = " %f %m %= %l:%c ♥ "
 
 --- Searching
 vim.opt.ignorecase = true   -- Ignore case when searching

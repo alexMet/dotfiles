@@ -44,12 +44,12 @@ fi
 setxkbmap -layout us,gr -option 'grp:win_space_toggle'
 brightnessctl -q s 30%
 redshift -PO 3000
-feh --no-fehbg --bg-fill $HOME/projects/dotfiles/wallpapers/leafy-moon.png
 
 if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
     eval $(dbus-launch --sh-syntax --exit-with-session)
 fi
 
+feh --no-fehbg --bg-fill --randomize $HOME/projects/dotfiles/wallpapers/* &
 xcompmgr -n &
 slstatus &
 st -e tmux &

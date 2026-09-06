@@ -32,9 +32,7 @@ update_if_needed ~/Documents/mullvad-vpn-bin/
 echo "==> Updating Mullvad browser..."
 update_if_needed ~/Documents/mullvad-browser-bin/
 echo "==> Updating Brave browser..."
-update_if_needed ~/Documents/brave-bin//
-echo "==> Updating openvpn3..."
-update_if_needed ~/Documents/openvpn3/
+update_if_needed ~/Documents/brave-bin/
 popd
 
 # NOTE: https://wiki.archlinux.org/title/Pacman/Pacnew_and_Pacsave

@@ -2,9 +2,10 @@
 set -euo pipefail
 
 function usage() {
-    echo "Usage: $0 {mic|more|less}"
-    echo "	more	Decrease the brightness."
-    echo "	less  	Increase the brightness."
+    echo "Usage: $0 {mute|more|less}"
+    echo "	mute  	Mute the volume."
+    echo "	more	Increase the volume."
+    echo "	less  	Decrease the volume."
     exit 1
 }
 
@@ -19,8 +20,9 @@ esac
 
 CURRENT=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}')
 MESSAGE="Changing volume ($CURRENT%)"
-if [ -f /tmp/noisenotifid ]; then
-    notify-send -r $(cat /tmp/noisenotifid) -h int:value:$CURRENT "$MESSAGE"
+FILE=/tmp/noisenotifid
+if [ -f $FILE ]; then
+    notify-send -r $(cat $FILE) -h int:value:$CURRENT "$MESSAGE"
 else
-    notify-send -p -h int:value:$CURRENT "$MESSAGE" > /tmp/noisenotifid
+    notify-send -p -h int:value:$CURRENT "$MESSAGE" > $FILE
 fi

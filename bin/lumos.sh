@@ -3,8 +3,8 @@ set -euo pipefail
 
 function usage() {
     echo "Usage: $0 {more|less}"
-    echo "	more	Decrease the brightness."
-    echo "	less  	Increase the brightness."
+    echo "	more	Increase the brightness."
+    echo "	less  	Decrease the brightness."
     exit 1
 }
 
@@ -18,8 +18,9 @@ esac
 
 CURRENT=$((($(brightnessctl get) * 100 / $(brightnessctl max) * 100) / 100))
 MESSAGE="Changing brightness ($CURRENT%)"
-if [ -f /tmp/lumosnotifid ]; then
-    notify-send -r $(cat /tmp/lumosnotifid) -h int:value:$CURRENT "$MESSAGE"
+FILE=/tmp/lumosnotifid
+if [ -f $FILE ]; then
+    notify-send -r $(cat $FILE) -h int:value:$CURRENT "$MESSAGE"
 else
-    notify-send -p -h int:value:$CURRENT "$MESSAGE" > /tmp/lumosnotifid
+    notify-send -p -h int:value:$CURRENT "$MESSAGE" > $FILE
 fi

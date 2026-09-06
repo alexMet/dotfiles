@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "==> Cleaning container stuff..."
-podman system prune -f
+# echo "==> Cleaning container stuff..."
+# podman system prune -f
 
 echo "==> Cleaning home folder cache..."
 du -sh ~/.cache/

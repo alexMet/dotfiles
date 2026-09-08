@@ -26,6 +26,7 @@ grep -- GNU string search utility
 gzip -- GNU compression utility
 inetutils -- GNU collection of common network programs
 iputils -- Network monitoring tools, including ping
+iwd -- Internet Wireless Daemon
 jq -- Command-line JSON processor
 less -- A terminal based program for viewing text files
 libnotify -- Library for sending desktop notifications

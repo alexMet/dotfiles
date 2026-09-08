@@ -1,7 +1,7 @@
-aardvark-dns -- Authoritative dns server for A/AAAA container records
 acpi -- Client for battery, power, and thermal readings
 android-tools -- Android platform tools
 android-udev -- Udev rules to connect Android devices to your linux box
+base-devel -- Basic tools to build Arch Linux packages
 bash -- The GNU Bourne Again shell
 binutils -- GNU  set of programs to assemble and manipulate binary and object files
 bluez -- Daemons for the bluetooth protocol stack
@@ -30,6 +30,7 @@ jq -- Command-line JSON processor
 less -- A terminal based program for viewing text files
 libnotify -- Library for sending desktop notifications
 linux-headers -- Headers and scripts for building modules for the Linux kernel
+make -- GNU make utility to maintain groups of programs
 minisign -- A dead-simple tool to sign files and verify digital signatures
 mpv -- a free, open source, and cross-platform media player
 neovim -- Fork of Vim aiming to improve user experience, plugins, and GUIs
@@ -56,7 +57,9 @@ sed -- GNU stream editor
 slock -- A simple screen locker for X
 tar -- GNU utility used to store, backup, and transport files
 tmux -- Terminal multiplexer
+tree-sitter-cli -- CLI tool for developing, testing, and using Tree-sitter parsers
 tree -- A directory listing program displaying a depth indented list of files
+ttf-hack -- A hand groomed and optically balanced typeface based on Bitstream Vera Mono.
 ttf-nerd-fonts-symbols -- High number of extra glyphs from popular 'iconic fonts'
 ufw -- Uncomplicated and easy to use CLI tool for managing a netfilter firewall
 unrar -- The RAR uncompression program

@@ -61,6 +61,12 @@ slstatus:
 	git clone https://git.suckless.org/slstatus ../slstatus/ || true
 	cd ../slstatus && make && sudo make install && make clean
 
+# https://tools.suckless.org/tabbed/
+.PHONY: tabbed
+tabbed:
+	git clone https://git.suckless.org/tabbed ../tabbed/ || true
+	cd ../tabbed/ && make && sudo make install && make clean
+
 # https://wiki.archlinux.org/title/Desktop_notifications
 # https://wiki.archlinux.org/title/Dunst
 .PHONY: dunst
